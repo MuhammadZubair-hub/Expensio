@@ -13,6 +13,8 @@ import {
 } from 'react-native-safe-area-context';
 import ThemeProvider from './src/theme/ThemeContext';
 import RootNavigator from './src/navigation/RootNaviagtor';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 
 
 function App() {
@@ -31,9 +33,11 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <ThemeProvider>
-      <RootNavigator />
-    </ThemeProvider>
+     <Provider store={store}>
+      <ThemeProvider>
+        <RootNavigator />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
