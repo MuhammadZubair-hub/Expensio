@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 // import { ThemeContext } from '../../theme/ThemeContext';
 import GlassCard from '../../components/GlassCard';
 import { useThemeContext } from '../../theme/ThemeContext';
+import Header from '../../components/Header';
 
 const DashboardScreen = () => {
   //  const { colors } = useContext(ThemeContext);
@@ -10,23 +11,32 @@ const DashboardScreen = () => {
   const { colors } = useThemeContext();
 
   return (
-    <ScrollView
-      style={[styles.container, { backgroundColor: colors.background }]}
-    >
-      <Text style={[styles.title, { color: colors.textPrimary }]}>
-        Expensio Dashboard
-      </Text>
+    <>
 
-      <GlassCard style={{ marginTop: 20 }}>
-        <Text style={{ color: colors.textPrimary }}>Monthly Expense</Text>
-        <Text style={{ fontSize: 28, color: colors.primary }}>₹12,400</Text>
-      </GlassCard>
+      <Header
+        title='Dashboard'
+        showNotification
+      />
+      <ScrollView
+        style={[styles.container, { backgroundColor: colors.background }]}
+      >
 
-      <GlassCard style={{ marginTop: 20 }}>
-        <Text style={{ color: colors.textPrimary }}>Remaining Budget</Text>
-        <Text style={{ fontSize: 28, color: colors.secondary }}>₹7,600</Text>
-      </GlassCard>
-    </ScrollView>
+
+        <Text style={[styles.title, { color: colors.textPrimary }]}>
+          Expensio Dashboard
+        </Text>
+
+        <GlassCard style={{ marginTop: 20 }}>
+          <Text style={{ color: colors.textPrimary }}>Monthly Expense</Text>
+          <Text style={{ fontSize: 28, color: colors.primary }}>Rs12,400</Text>
+        </GlassCard>
+
+        <GlassCard style={{ marginTop: 20 }}>
+          <Text style={{ color: colors.textPrimary }}>Remaining Budget</Text>
+          <Text style={{ fontSize: 28, color: colors.secondary }}>RS7,600</Text>
+        </GlassCard>
+      </ScrollView>
+    </>
   );
 }
 
